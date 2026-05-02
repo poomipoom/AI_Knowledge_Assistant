@@ -1,0 +1,61 @@
+.document-panel {
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(30, 33, 43, 0.7) 0%, rgba(20, 23, 33, 0.4) 100%);
+}
+
+.doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.doc-header h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.doc-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.no-docs {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  width: 100%;
+  text-align: center;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.9rem;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+
+.doc-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.doc-item svg {
+  color: var(--accent);
+}
