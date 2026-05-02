@@ -31,25 +31,12 @@ The system is designed with a **premium Glassmorphism UI** and a highly scalable
 
 ## 🏗 System Architecture
 
-```mermaid
-graph TD
-    User --> UI[React Frontend]
-    UI --> API[FastAPI Backend]
-    
-    subgraph Services
-        API --> Docs[Document Service]
-        API --> Chat[Chat Service]
-        API --> Sess[Session Service]
-    end
-    
-    Docs --> PyMuPDF[PyMuPDF Parser]
-    Docs --> Embed[Local Embeddings]
-    Embed --> DB[(Vector Database)]
-    
-    Chat --> Agent[AI Agent]
-    Agent <--> DB
-    Agent <--> LLM[Groq Llama 3]
-```
+- 👤 **User** ➔ Uploads PDFs & chats via the web interface.
+- 🎨 **Frontend (React + Vite)** ➔ Provides a responsive, premium glassmorphism UI.
+- ⚙️ **Backend API (FastAPI)** ➔ The core engine routing requests to various services:
+  - 📄 **Document Pipeline:** Extracts text using `PyMuPDF` ➔ Chunks text ➔ Generates $0-cost local embeddings via `Sentence-Transformers`.
+  - 💾 **Vector Database (PostgreSQL + pgvector):** Stores chat history, documents, and vector embeddings for high-speed semantic search.
+  - 🧠 **AI Agent Orchestrator:** Uses a ReAct reasoning loop. It intelligently decides when to query the database for facts and when to answer directly using the lightning-fast **Groq API (Llama 3)**.
 
 ## 🛠 Tech Stack
 
