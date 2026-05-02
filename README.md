@@ -132,7 +132,7 @@ rag_chatbot/
 
 ## 👨‍💻 Author
 **Chanatip Chaikij (นาย ชนาธิป ชัยกิจ)**
-- GitHub: [Your GitHub Profile](https://github.com/yourusername)
+- GitHub: [poomipoom](https://github.com/poomipoom)
 
 ## 📜 License
 This project is open-source and available under the MIT License.
