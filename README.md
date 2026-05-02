@@ -33,22 +33,22 @@ The system is designed with a **premium Glassmorphism UI** and a highly scalable
 
 ```mermaid
 graph TD
-    User([User]) --> |Uploads PDF / Chats| UI["React + Vite UI"]
-    UI --> |REST API| API["FastAPI Backend"]
+    User --> UI[React Frontend]
+    UI --> API[FastAPI Backend]
     
-    subgraph "Backend Services"
-        API --> DocSvc["Document Service"]
-        API --> ChatSvc["Chat Service"]
-        API --> SessSvc["Session Service"]
+    subgraph Services
+        API --> Docs[Document Service]
+        API --> Chat[Chat Service]
+        API --> Sess[Session Service]
     end
     
-    DocSvc --> |Extract & Chunk| PyMuPDF
-    DocSvc --> |Generate Embeddings| ST["Local Sentence-Transformers"]
-    ST --> |Store Vectors| DB[("PostgreSQL + pgvector")]
+    Docs --> PyMuPDF[PyMuPDF Parser]
+    Docs --> Embed[Local Embeddings]
+    Embed --> DB[(Vector Database)]
     
-    ChatSvc --> Agent["ReAct Agent Orchestrator"]
-    Agent <--> |Search Query| DB
-    Agent <--> |LLM Inference| Groq["Groq API (gpt-oss-120b)"]
+    Chat --> Agent[AI Agent]
+    Agent <--> DB
+    Agent <--> LLM[Groq Llama 3]
 ```
 
 ## 🛠 Tech Stack
